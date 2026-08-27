@@ -1,0 +1,338 @@
+.leaderboard-container {
+    max-width: 58rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.leaderboard-header-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+@media (min-width: 640px) {
+    .leaderboard-header-row {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.leaderboard-title {
+    font-size: clamp(1.5rem, 2rem, 2.25rem);
+    font-weight: 800;
+    color: #1c2b1a;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.leaderboard-subtitle {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #7a9175;
+    margin: 0.35rem 0 0 0;
+    font-weight: 500;
+}
+
+.leaderboard-tabs {
+    display: inline-flex;
+    background-color: #eae8e1;
+    border-radius: 9999px;
+    padding: 0.25rem;
+    gap: 0.25rem;
+    align-self: flex-start;
+}
+
+@media (min-width: 640px) {
+    .leaderboard-tabs {
+        align-self: auto;
+    }
+}
+
+.leaderboard-tab {
+    padding: 0.45rem 1.35rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: #7a9175;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.leaderboard-tab:hover {
+    color: #1c2b1a;
+}
+
+.leaderboard-tab.active {
+    background-color: #ffffff;
+    color: #1c2b1a;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    font-weight: 700;
+}
+
+.leaderboard-podium {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+@media (max-width: 640px) {
+    .leaderboard-podium {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
+
+.leaderboard-podium-card {
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(91, 138, 88, 0.18);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.leaderboard-podium-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.leaderboard-podium-card.first {
+    background-color: #eef6ea;
+    border: 1.5px solid #a3cf9e;
+    box-shadow: 0 4px 14px rgba(91, 138, 88, 0.1);
+}
+
+.leaderboard-podium-medal {
+    font-size: 1.75rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leaderboard-podium-name {
+    font-size: 0.95rem;
+    line-height: 1.2rem;
+    font-weight: 800;
+    color: #1c2b1a;
+    letter-spacing: 0.02em;
+}
+
+.leaderboard-podium-score {
+    font-size: 1.65rem;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #5b8a58;
+    margin-top: 0.35rem;
+}
+
+.leaderboard-podium-unit {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: #7a9175;
+    font-weight: 500;
+    margin-top: 0.15rem;
+}
+
+.leaderboard-list-container {
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(91, 138, 88, 0.15);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.leaderboard-list-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f0f0eb;
+    transition: background-color 0.15s ease;
+    box-sizing: border-box;
+}
+
+.leaderboard-list-item:last-child {
+    border-bottom: none;
+}
+
+.leaderboard-list-item:hover {
+    background-color: #f8faf7;
+}
+
+.leaderboard-list-item.is-me,
+.leaderboard-list-item.is-faculty {
+    background-color: #eef6ea;
+}
+
+.leaderboard-list-item.is-me:hover,
+.leaderboard-list-item.is-faculty:hover {
+    background-color: #e5f0df;
+}
+
+.leaderboard-empty {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: #7a9175;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.leaderboard-rank {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.leaderboard-list-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.leaderboard-list-avatar.faculty {
+    background-color: #dcebd9;
+    color: #417f42;
+}
+
+.leaderboard-list-avatar.faculty.highlight,
+.leaderboard-list-avatar.individual.highlight {
+    background-color: #5b8a58;
+    color: #ffffff;
+}
+
+.leaderboard-list-avatar.individual {
+    background-color: #dcebd9;
+    color: #417f42;
+}
+
+.leaderboard-list-info {
+    flex: 1 1 0%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.leaderboard-title-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.leaderboard-list-title {
+    font-size: 0.95rem;
+    line-height: 1.3rem;
+    font-weight: 700;
+    color: #1c2b1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.leaderboard-you-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #417f42;
+    background-color: #dcebd9;
+    padding: 0.15rem 0.6rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+.leaderboard-list-subtitle {
+    font-size: 0.78rem;
+    line-height: 1.1rem;
+    color: #7a9175;
+    font-weight: 500;
+}
+
+.leaderboard-list-pts-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background-color: #5b8a58;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(91, 138, 88, 0.25);
+    flex-shrink: 0;
+}
+
+.leaderboard-list-pts-icon {
+    font-size: 0.75rem;
+}
+
+.leaderboard-hidden {
+    display: none !important;
+}
+
+@media (max-width: 480px) {
+    .leaderboard-list-item {
+        padding: 0.85rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .leaderboard-rank {
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 0.75rem;
+    }
+
+    .leaderboard-list-avatar {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 0.75rem;
+    }
+
+    .leaderboard-list-title {
+        font-size: 0.85rem;
+    }
+
+    .leaderboard-list-subtitle {
+        font-size: 0.72rem;
+    }
+
+    .leaderboard-list-pts-badge {
+        padding: 0.3rem 0.65rem;
+        font-size: 0.75rem;
+    }
+}

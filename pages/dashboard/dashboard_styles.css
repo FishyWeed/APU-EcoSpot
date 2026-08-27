@@ -1,0 +1,414 @@
+.dashboard-container {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.dashboard-user-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.dashboard-user-avatar {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 0.85rem;
+    background-color: #558b55;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(85, 139, 85, 0.2);
+}
+
+.dashboard-user-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.dashboard-user-greeting {
+    font-size: clamp(1.4rem, 1.85rem, 2.1rem);
+    font-weight: 800;
+    color: #1c2b1a;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.dashboard-user-subtitle {
+    font-size: 0.875rem;
+    color: #7a9175;
+    margin: 0;
+    font-weight: 500;
+}
+
+.dashboard-quick-access {
+    margin-bottom: 2rem;
+}
+
+.dashboard-section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #7a9175;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.dashboard-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 640px) {
+    .dashboard-quick-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dashboard-quick-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.25rem 1rem;
+    border-radius: 1rem;
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.dashboard-quick-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-quick-card.report {
+    background-color: #558b55;
+    color: #ffffff !important;
+}
+
+.dashboard-quick-card.report:hover {
+    background-color: #487848;
+}
+
+.dashboard-quick-card.leaderboard {
+    background-color: #eef6ea;
+    border: 1px solid rgba(91, 138, 88, 0.2);
+    color: #417f42 !important;
+}
+
+.dashboard-quick-card.leaderboard:hover {
+    background-color: #e5f0df;
+}
+
+.dashboard-quick-card.console {
+    background-color: #e6f3fa;
+    border: 1px solid #bae6fd;
+    color: #0284c7 !important;
+}
+
+.dashboard-quick-card.console:hover {
+    background-color: #d9effa;
+}
+
+.dashboard-quick-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.dashboard-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 960px) {
+    .dashboard-content-grid {
+        grid-template-columns: 1.65fr 1fr;
+    }
+}
+
+.dashboard-reports-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dashboard-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.dashboard-section-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #1c2b1a;
+    margin: 0;
+}
+
+.dashboard-btn-new-report {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 1.1rem;
+    border-radius: 9999px;
+    background-color: #558b55;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(85, 139, 85, 0.2);
+    transition: all 0.2s ease;
+}
+
+.dashboard-btn-new-report:hover {
+    background-color: #487848;
+    box-shadow: 0 4px 10px rgba(85, 139, 85, 0.3);
+}
+
+.dashboard-reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.dashboard-report-card {
+    background-color: #ffffff;
+    border-radius: 1.15rem;
+    border: 1px solid rgba(91, 138, 88, 0.16);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-report-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-report-icon {
+    width: 2.85rem;
+    height: 2.85rem;
+    border-radius: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    flex-shrink: 0;
+}
+
+.dashboard-report-icon.lighting {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.dashboard-report-icon.aircon {
+    background-color: #dcebd9;
+    color: #417f42;
+}
+
+.dashboard-report-icon.projector {
+    background-color: #f3e8ff;
+    color: #7c3aed;
+}
+
+.dashboard-report-icon.other {
+    background-color: #ffedd5;
+    color: #ea580c;
+}
+
+.dashboard-report-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.dashboard-report-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.dashboard-report-id {
+    font-size: 0.76rem;
+    color: #8c9b8c;
+    font-weight: 600;
+}
+
+.dashboard-report-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1c2b1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dashboard-report-location {
+    font-size: 0.8rem;
+    color: #7a9175;
+    font-weight: 500;
+}
+
+.dashboard-report-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.dashboard-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.dashboard-status-badge.pending {
+    background-color: #fff7ed;
+    color: #ea580c;
+}
+
+.dashboard-status-badge.validated {
+    background-color: #f0fdf4;
+    color: #16a34a;
+}
+
+.dashboard-status-badge.resolved {
+    background-color: #e0f2fe;
+    color: #0284c7;
+}
+
+.dashboard-report-time {
+    font-size: 0.74rem;
+    color: #8c9b8c;
+    font-weight: 500;
+}
+
+.dashboard-empty-reports {
+    background-color: #ffffff;
+    border-radius: 1.15rem;
+    border: 1px solid rgba(91, 138, 88, 0.16);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+}
+
+.dashboard-activity-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.dashboard-activity-card {
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(91, 138, 88, 0.16);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-activity-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.95rem 1.25rem;
+    border-bottom: 1px solid #f0f0eb;
+    gap: 0.5rem;
+}
+
+.dashboard-activity-item:last-child {
+    border-bottom: none;
+}
+
+.dashboard-activity-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.dashboard-activity-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1c2b1a;
+}
+
+.dashboard-activity-sub {
+    font-size: 0.76rem;
+    color: #7a9175;
+    font-weight: 500;
+}
+
+.dashboard-activity-pts {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #558b55;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+.dashboard-activity-footer {
+    background-color: #f8faf7;
+    border-top: 1px solid #f0f0eb;
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard-activity-footer-label {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #1c2b1a;
+}
+
+.dashboard-activity-total-badge {
+    background-color: #558b55;
+    color: #ffffff;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    box-shadow: 0 2px 6px rgba(85, 139, 85, 0.2);
+}
