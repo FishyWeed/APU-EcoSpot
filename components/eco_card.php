@@ -64,6 +64,7 @@ function render_eco_card($item, $layout = 'grid')
                     font-weight: 700;
                     color: #1a1a1a;
                     flex: 1;
+                    text-align: left;
                     min-width: 0;
                     white-space: nowrap;
                     overflow: hidden;

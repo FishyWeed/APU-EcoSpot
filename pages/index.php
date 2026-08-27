@@ -319,5 +319,5 @@ $layout_body = function ($user_info) {
 <?php
 };
 
-render_layout("Home Page", $layout_body);
+render_layout("Home Page", $layout_body, function() {}, function() {});
 ?>

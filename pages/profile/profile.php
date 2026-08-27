@@ -178,7 +178,7 @@ $layout_body = function ($user_info) {
             <div class="role-badge-wrapper">
                 <?php
                 render_button(
-                    $display_role . ' Staff',
+                    $display_role,
                     '0.8rem',
                     '#',
                     true,

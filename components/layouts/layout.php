@@ -68,7 +68,7 @@ function render_layout($page_title, $layout_body, $layout_left = null, $layout_r
 
             $stmt_t = mysqli_prepare(
                 $db_connection,
-                "SELECT ticket_id AS id, description AS title, 'APU Campus' AS location, status 
+                "SELECT ticket_id AS id, description AS title, CONCAT(block_name, ' · Room ', room_number) AS location, status 
                 FROM ticket 
                 WHERE user_id = ? 
                 ORDER BY ticket_id DESC"
@@ -161,6 +161,7 @@ function render_layout($page_title, $layout_body, $layout_left = null, $layout_r
                 .desktop-layout-shell {
                     display: flex;
                     flex-direction: column;
+                    padding-top: 2.5rem;
                     min-height: 100vh;
                     box-sizing: border-box;
                 }

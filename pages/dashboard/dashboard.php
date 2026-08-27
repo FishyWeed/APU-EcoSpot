@@ -168,9 +168,7 @@ $layout_body = function ($user_info) {
             <div class="dashboard-reports-col">
                 <div class="dashboard-section-header">
                     <h2 class="dashboard-section-title">My Reports</h2>
-                    <a href="/Assignment/src/pages/report/report.php" class="dashboard-btn-new-report">
-                        ＋ New Report
-                    </a>
+                    <?php render_button("＋ New Report", "0.8rem", "/Assignment/src/pages/report/report.php", true, "#ffffff", "#558B55", "none", "auto", "auto", "0.5rem 0.75rem", "1.25rem"); ?>
                 </div>
 
                 <div class="dashboard-reports-list">
@@ -179,9 +177,7 @@ $layout_body = function ($user_info) {
                             <span style="font-size: 2.25rem; display: block; margin-bottom: 0.5rem;">🍃</span>
                             <h3 style="font-size: 1.15rem; font-weight: 700; color: #1c2b1a; margin: 0 0 0.25rem 0;">No reports filed yet</h3>
                             <p style="color: #7a9175; font-size: 0.85rem; margin: 0 0 1rem 0;">Spot energy waste on campus and earn impact points!</p>
-                            <a href="/Assignment/src/pages/report/report.php" class="dashboard-btn-new-report" style="display: inline-block;">
-                                File a Report
-                            </a>
+                            <?php render_button("File a Report", "0.8rem", "/Assignment/src/pages/report/report.php", true, "#ffffff", "#558B55", "none", "auto", "auto", "0.5rem 0.75rem", "1.25rem"); ?>
                         </div>
                     <?php else: ?>
                         <?php foreach ($my_tickets as $ticket):
