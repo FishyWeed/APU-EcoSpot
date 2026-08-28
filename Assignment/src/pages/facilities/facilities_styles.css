@@ -1,0 +1,400 @@
+.facilities-container {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.facilities-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.facilities-header-icon-box {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.85rem;
+    background-color: #e6f3fa;
+    border: 1px solid #bae6fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    color: #0284c7;
+    flex-shrink: 0;
+}
+
+.facilities-title {
+    font-size: clamp(1.4rem, 1.85rem, 2.1rem);
+    font-weight: 800;
+    color: #1c2b1a;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.facilities-subtitle {
+    font-size: 0.875rem;
+    color: #7a9175;
+    margin: 0.25rem 0 0 0;
+    font-weight: 500;
+}
+
+.facilities-filters {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scrollbar-width: none;
+}
+
+.facilities-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.facilities-filter-chip {
+    padding: 0.4rem 1.1rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background-color: #eae8e1;
+    color: #7a9175;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.facilities-filter-chip:hover {
+    color: #1c2b1a;
+}
+
+.facilities-filter-chip.active {
+    background-color: #2a7b9b;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(42, 123, 155, 0.25);
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 960px) {
+    .facilities-grid {
+        grid-template-columns: 1.6fr 1fr;
+    }
+}
+
+.facilities-table-card {
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(91, 138, 88, 0.16);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+.facilities-table-header {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    padding: 0.85rem 1.25rem;
+    background-color: #f8faf7;
+    border-bottom: 1px solid #f0f0eb;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #7a9175;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.facilities-table-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.facilities-ticket-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f0f0eb;
+    gap: 0.75rem;
+    transition: background-color 0.15s ease;
+    box-sizing: border-box;
+}
+
+.facilities-ticket-row:last-child {
+    border-bottom: none;
+}
+
+.facilities-ticket-row:hover {
+    background-color: #f9fbf8;
+}
+
+.facilities-ticket-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.facilities-ticket-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.facilities-ticket-id {
+    font-size: 0.75rem;
+    color: #8c9b8c;
+    font-weight: 600;
+}
+
+.facilities-ticket-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1c2b1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.facilities-ticket-location {
+    font-size: 0.8rem;
+    color: #7a9175;
+    font-weight: 500;
+}
+
+.facilities-ticket-assignee {
+    font-size: 0.76rem;
+    color: #b45309;
+    font-weight: 600;
+}
+
+.facilities-ticket-time {
+    font-size: 0.74rem;
+    color: #8c9b8c;
+}
+
+.facilities-priority-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.facilities-priority-badge.high {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.facilities-priority-badge.medium {
+    background-color: #ffedd5;
+    color: #c2410c;
+}
+
+.facilities-priority-badge.low {
+    background-color: #dcebd9;
+    color: #417f42;
+}
+
+.facilities-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.facilities-status-badge.open {
+    background-color: #fff7ed;
+    color: #ea580c;
+}
+
+.facilities-status-badge.assigned {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.facilities-status-badge.resolved {
+    background-color: #e0f2fe;
+    color: #0284c7;
+}
+
+.facilities-btn-assign {
+    background-color: #558b55;
+    color: #ffffff;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(85, 139, 85, 0.2);
+}
+.facilities-btn-assign:hover {
+    background-color: #467646;
+    box-shadow: 0 4px 10px rgba(85, 139, 85, 0.3);
+}
+
+.facilities-btn-resolve {
+    background-color: #2a7b9b;
+    color: #ffffff;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(42, 123, 155, 0.25);
+}
+
+.facilities-btn-resolve:hover {
+    background-color: #20637d;
+    box-shadow: 0 4px 10px rgba(42, 123, 155, 0.35);
+}
+
+.facilities-done-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #0284c7;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.facilities-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.facilities-sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.facilities-sidebar-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #1c2b1a;
+    margin: 0;
+}
+
+.facilities-queue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.facilities-queue-item {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    border: 1px solid rgba(91, 138, 88, 0.16);
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.facilities-queue-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.facilities-queue-val {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.facilities-queue-val.open {
+    color: #ea580c;
+}
+
+.facilities-queue-val.assigned {
+    color: #1c2b1a;
+}
+
+.facilities-queue-val.resolved {
+    color: #2a7b9b;
+}
+
+.facilities-chart-card {
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(91, 138, 88, 0.16);
+    padding: 1.25rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.facilities-chart-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+}
+
+.facilities-chart-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1c2b1a;
+    line-height: 1;
+}
+
+.facilities-chart-unit {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #7a9175;
+}
+
+.facilities-chart-subtitle {
+    font-size: 0.78rem;
+    color: #7a9175;
+    margin: 0.25rem 0 0.5rem 0;
+    font-weight: 500;
+}
+
+.facilities-hidden {
+    display: none !important;
+}
+
+@media (max-width: 640px) {
+    .facilities-table-header {
+        display: none;
+    }
+
+    .facilities-ticket-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1rem;
+        justify-items: center;
+    }
+
+    .facilities-ticket-row > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
