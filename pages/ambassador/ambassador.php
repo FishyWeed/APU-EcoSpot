@@ -93,6 +93,8 @@ $layout_body = function ($user_info) {
     global $db_connection;
     $conn = $db_connection;
 
+    $chart_data = fetch_ambassador_chart_data($db_connection);
+
     $sql = "SELECT t.*, u.full_name 
             FROM ticket t 
             JOIN user u ON t.user_id = u.user_id 
@@ -223,60 +225,48 @@ $layout_body = function ($user_info) {
                 <?php endif; ?>
             </div>
 
-            <div class="ambassador-sidebar">
-                <div class="ambassador-sidebar-header">
-                    <h2 class="ambassador-sidebar-title">Switch-Off Challenges</h2>
-                    <button type="button" class="ambassador-btn-new-challenge" onclick="alert('Challenge creation modal coming soon!');">
-                        ＋ New
-                    </button>
+            <div class="analytics-graph-card">
+                <div class="graph-header-zone">
+                    <h3 class="graph-header-title">Campus Energy Waste Overview</h3>
+                    <p class="graph-header-subtitle">Live potential energy loss (kWh) from un-resolved incident logs grouped by infrastructure block</p>
                 </div>
-
-                <div class="ambassador-challenge-card">
-                    <div class="ambassador-challenge-top">
-                        <span class="ambassador-challenge-badge">• Active</span>
-                        <span class="ambassador-challenge-id">CH-014</span>
-                    </div>
-                    <h3 class="ambassador-challenge-title">Block B Switch-Off Monday</h3>
-                    <p class="ambassador-challenge-desc">Turn off all lights and ACs during lunch break (12:00–14:00) in Block B.</p>
-                    <div class="ambassador-progress-section">
-                        <div class="ambassador-progress-header">
-                            <span>Participants</span>
-                            <span>47 / 100</span>
-                        </div>
-                        <div class="ambassador-progress-track">
-                            <div class="ambassador-progress-fill" style="width: 47%;"></div>
-                        </div>
-                    </div>
-                    <div class="ambassador-challenge-footer">
-                        <span>🕐 3 days left</span>
-                        <span>Target: 120 kWh</span>
-                    </div>
-                </div>
-
-                <div class="ambassador-challenge-card">
-                    <div class="ambassador-challenge-top">
-                        <span class="ambassador-challenge-badge">• Active</span>
-                        <span class="ambassador-challenge-id">CH-013</span>
-                    </div>
-                    <h3 class="ambassador-challenge-title">Library After-Hours Lights Off</h3>
-                    <p class="ambassador-challenge-desc">Ensure study zones are powered down by 23:30 for the entire week.</p>
-                    <div class="ambassador-progress-section">
-                        <div class="ambassador-progress-header">
-                            <span>Participants</span>
-                            <span>23 / 50</span>
-                        </div>
-                        <div class="ambassador-progress-track">
-                            <div class="ambassador-progress-fill" style="width: 46%;"></div>
-                        </div>
-                    </div>
-                    <div class="ambassador-challenge-footer">
-                        <span>🕐 6 days left</span>
-                        <span>Target: 80 kWh</span>
-                    </div>
-                </div>
+                <?php
+                render_bar_graph($chart_data);
+                ?>
             </div>
         </div>
     </div>
+
+    <style>
+        .analytics-graph-card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 24px;
+            padding: 2rem;
+            box-sizing: border-box;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.01);
+            font-family: system-ui, -apple-system, sans-serif;
+            margin-bottom: 2rem;
+
+            .graph-header-title {
+                font-size: 1.25rem;
+                font-weight: 800;
+                color: #1a1a1a;
+                margin: 0 0 4px 0;
+                letter-spacing: -0.3px;
+            }
+
+            .graph-header-subtitle {
+                font-size: 0.85rem;
+                color: #8c8c8c;
+                margin: 0 0 1.5rem 0;
+                font-weight: 500;
+            }
+        }
+    </style>
 
     <script>
         function filterReports(block, btn) {

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Renders a responsive bar graph component displaying kWh savings by location.
  * Highlights the top 3 highest bars with richer green color.
@@ -8,11 +7,9 @@
  *                    - [['location' => 'Block A', 'kwh' => 42], ...]
  *                    - [['Location' => 'Block A', 'kWh' => 42], ...]
  *                    - [['Block A', 42], ...]
- * @param array $options Optional configuration (e.g. height, max_kwh, show_grid)
  */
-function render_bar_graph($data = [], $options = [])
+function render_bar_graph($data = [])
 {
-    // Normalize data into standardized structure [['location' => ..., 'kwh' => ...]]
     $normalized_data = [];
     $raw_values = [];
 
@@ -45,20 +42,16 @@ function render_bar_graph($data = [], $options = [])
         return;
     }
 
-    // Determine max value for Y-axis scaling
     $max_val = max(10, max($raw_values));
-    // Calculate a clean round ceiling (e.g. 100, 75, 50)
     $ceil_val = ceil($max_val / 25) * 25;
     if ($ceil_val < 50) {
         $ceil_val = 50;
     }
 
-    // Identify top 3 highest values to color them darker green
     $sorted_vals = $raw_values;
     rsort($sorted_vals, SORT_NUMERIC);
     $top_3_threshold = $sorted_vals[min(2, count($sorted_vals) - 1)] ?? 0;
 
-    // Y-axis markers
     $y_steps = [
         $ceil_val,
         (int)($ceil_val * 0.75),
@@ -167,13 +160,11 @@ function render_bar_graph($data = [], $options = [])
             filter: brightness(1.08);
         }
 
-        /* Top 3 highest bars — Richer, darker green */
         .bar-graph-pillar.is-top3 {
             background-color: #558b55;
             box-shadow: 0 2px 6px rgba(85, 139, 85, 0.25);
         }
 
-        /* Other bars — Softer, lighter green */
         .bar-graph-pillar.is-standard {
             background-color: #a4cda0;
         }
@@ -193,7 +184,6 @@ function render_bar_graph($data = [], $options = [])
             text-align: center;
         }
 
-        /* Tooltip on hover */
         .bar-graph-pillar::after {
             content: attr(data-tooltip);
             position: absolute;
@@ -223,21 +213,18 @@ function render_bar_graph($data = [], $options = [])
 
     <div class="bar-graph-wrapper">
         <div class="bar-graph-canvas">
-            <!-- Y-Axis Labels -->
             <div class="bar-graph-y-axis">
                 <?php foreach ($y_steps as $step): ?>
                     <span class="bar-graph-y-label"><?php echo $step; ?></span>
                 <?php endforeach; ?>
             </div>
 
-            <!-- Grid Lines -->
             <div class="bar-graph-grid-lines">
                 <?php foreach ($y_steps as $step): ?>
                     <div class="bar-graph-grid-line"></div>
                 <?php endforeach; ?>
             </div>
 
-            <!-- Bars Container -->
             <div class="bar-graph-bars-container">
                 <?php
                 foreach ($normalized_data as $bar):

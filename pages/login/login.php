@@ -52,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_role']  = map_role_for_layout($row['role_name'] ?? '', $row['user_type'] ?? '');
                 $_SESSION['eco_points'] = $row['impact_pts'];
 
-                // Session keys kept for migrated /extras pages
                 $_SESSION['email']      = $row['email'];
                 $_SESSION['fullname']   = $row['full_name'];
                 $_SESSION['userid']     = $row['student_id'];

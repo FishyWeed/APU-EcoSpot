@@ -1,22 +1,12 @@
 <?php
-// src/pages/profile/profile.php
-
-// 1. Step up two directory levels to link your central framework components
 require_once __DIR__ . '/../../components/components.php';
 
 $layout_body = function ($user_info) {
-    $username = $user_info['user_name'] ?? 'User';
-    $words = explode(" ", $username);
-    $initials = "";
-    foreach ($words as $w) {
-        $initials .= strtoupper(substr($w, 0, 1));
-    }
-    if (empty($initials)) {
-        $initials = "US";
-    } else {
-        $initials = substr($initials, 0, 2);
-    }
+    $name = $user_info['user_name'] ?? 'User';
+    $parts = explode(' ', $name);
+    $initials = $parts[0][0] . $parts[1][0];
 
+    $username = $user_info['user_name'] ?? 'User';
     $email = $user_info['user_email'] ?? 'user@mail.apu.edu.my';
     $role_name = $user_info['user_role'] ?? 'Student';
 
@@ -221,7 +211,7 @@ $layout_body = function ($user_info) {
                     </div>
                     <span class="arrow-chevron">&rsaquo;</span>
                 </a>
-                
+
                 <?php if (strtolower($role_name) === 'student'): ?>
                     <a href="/Assignment/src/pages/student/student.php" class="menu-link-row">
                         <div class="link-left-content">
@@ -251,7 +241,7 @@ $layout_body = function ($user_info) {
             <div class="menu-links-list">
                 <a href="/Assignment/src/util/logout.php" class="menu-link-row">
                     <div class="link-left-content"">
-                        <span class="link-icon">🚪</span>
+                        <span class=" link-icon">🚪</span>
                         <span>[→ Sign Out</span>
                     </div>
                     <span class="arrow-chevron">&rsaquo;</span>
@@ -261,4 +251,4 @@ $layout_body = function ($user_info) {
     <?php
 };
 render_layout("User Profile Dashboard", $layout_body); ?>
-    ?>
+?>

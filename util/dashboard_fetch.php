@@ -53,3 +53,45 @@ function fetch_student_dashboard_stats($db_connection, $user_id)
 
     return $stats;
 }
+
+/**
+ * Aggregates active ticket metrics into kWh data arrays for the bar graph component.
+ * 
+ * @param mysqli $db_connection Active database connection reference
+ * @return array Properly formatted dataset array matching your graph parameters
+ */
+function fetch_ambassador_chart_data($db_connection) {
+    $graph_dataset = [];
+
+    if (!$db_connection instanceof mysqli) {
+        return $graph_dataset;
+    }
+
+    $base_kwh_per_report = 1.25;
+
+    $sql = "SELECT block_name, COUNT(*) AS ticket_count 
+            FROM ticket 
+            WHERE status != 'resolved' 
+            GROUP BY block_name 
+            ORDER BY ticket_count DESC";
+
+    if ($stmt = mysqli_prepare($db_connection, $sql)) {
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        
+        while ($row = mysqli_fetch_assoc($result)) {
+            $block_label = !empty($row['block_name']) ? $row['block_name'] : 'Block ?';
+            $calculated_kwh = (int)$row['ticket_count'] * $base_kwh_per_report;
+
+            $graph_dataset[] = [
+                'location' => $block_label,
+                'kwh'      => $calculated_kwh
+            ];
+        }
+        mysqli_stmt_close($stmt);
+    }
+
+    return $graph_dataset;
+}
+
+

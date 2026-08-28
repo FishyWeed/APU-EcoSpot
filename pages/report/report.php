@@ -30,10 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
 
-            // Award 75 impact points to the reporting user
             mysqli_query($conn, "UPDATE user SET impact_pts = impact_pts + 75 WHERE user_id = $real_uid");
 
-            // Update session so layout immediately reflects new points
             $_SESSION['eco_points'] = ($_SESSION['eco_points'] ?? 0) + 75;
             $_SESSION['impact_pts'] = ($_SESSION['impact_pts'] ?? 0) + 75;
 
