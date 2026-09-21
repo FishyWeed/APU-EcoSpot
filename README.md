@@ -1,6 +1,6 @@
 This is our A grade APU sustainability website RWDD assignment codebase 
 
-This website has 3 roles:
+This website has 3 Roles:
 Student
 Eco-ambassador
 Facilities management 
