@@ -1,4 +1,4 @@
-This is our A grade APU sustainability website rwdd assignment codebase 
+This is our A grade APU sustainability website RWDD assignment codebase 
 
 This website has 3 roles:
 Student
