@@ -5,7 +5,7 @@ Student
 Eco-ambassador
 Facilities management 
 
-This codebase utilizes php, html, css and javascript 
+This codebase utilizes php, html, css and Javascript
 
 The database is stored using phpMyAdmin XAMPP
 
