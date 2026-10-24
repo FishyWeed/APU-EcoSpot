@@ -1,6 +1,6 @@
 # 🍃 APU-EcoSpot — Campus Sustainability & Waste Reporting Platform
 
-> **APU Sustainability Initiative | Real World Web Development (RWDD)**  
+> **APU Sustainability Initiative | Responsive Web Development (RWDD) Project**  
 > *Spot the waste. Fix it in seconds. Save kWh and earn impact points.*
 
 ---
